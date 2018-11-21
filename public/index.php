@@ -11,7 +11,9 @@ use Symfony\Component\HttpFoundation\Request;
 $routeArticle = (new Route('/articles/{slug}'))
     ->setDefault('_callback', function ($slug) {
         echo sprintf('Hello from Article %s', $slug);
-    });
+    })
+    ->setRequirement('slug', '[0-9-]+')
+    ->setCondition("request.headers.get('User-Agent') matches '/chrome/i'");
 
 $collection = new RouteCollection();
 $collection->add('articles-show', $routeArticle);
