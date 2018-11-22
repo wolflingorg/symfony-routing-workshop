@@ -1,11 +1,13 @@
 <?php
+namespace src;
+
 require_once '../vendor/autoload.php';
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Routing\Loader\YamlFileLoader;
-use Symfony\Component\Routing\Router;
 use Symfony\Component\Routing\RequestContext;
+use Symfony\Component\Routing\Router;
 
 $request = Request::createFromGlobals();
 
