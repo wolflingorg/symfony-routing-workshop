@@ -1,4 +1,6 @@
 <?php
+namespace src;
+
 require_once '../vendor/autoload.php';
 
 use Symfony\Component\Routing\RequestContext;
@@ -26,11 +28,11 @@ $matcher = new UrlMatcher($collection, $context);
 
 try {
     $defaults = $matcher->matchRequest($request);
+
+    print_r($defaults);
+
+    $defaults['_callback']($defaults['slug']);
 } catch (ResourceNotFoundException $e) {
     echo $e->getMessage();
 }
-
-print_r($defaults);
-
-$defaults['_callback']($defaults['slug']);
 
