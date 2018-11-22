@@ -3,6 +3,7 @@ namespace src;
 
 require_once '../vendor/autoload.php';
 
+use Symfony\Component\Routing\Generator\UrlGenerator;
 use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
@@ -30,3 +31,7 @@ try {
 } catch (ResourceNotFoundException $e) {
     echo $e->getMessage();
 }
+
+$generator = new UrlGenerator($collection, $context);
+
+echo $generator->generate('home');
