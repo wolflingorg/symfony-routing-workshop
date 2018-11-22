@@ -1,0 +1,7 @@
+articles:
+  path:     /articles
+  defaults: { _callable: 'articles' }
+articles-show:
+  path:     /articles/{slug}
+  defaults: { _callable: 'articlesShow' }
+
